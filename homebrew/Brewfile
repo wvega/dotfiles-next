@@ -1,4 +1,8 @@
+tap 'homebrew/cask-fonts'
+
 brew 'mas'
+
+cask 'font-jetbrains-mono'
 
 mas "1Password 7", id: 1333542190
 mas "Bear", id: 1091189122
