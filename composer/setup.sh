@@ -16,3 +16,5 @@ if [[ "0" == $(php -r "echo version_compare(PHP_VERSION, '8', '>=') ? 0 : 1;") ]
     brew unlink php
     brew link php@7.4
 fi
+
+composer global install
