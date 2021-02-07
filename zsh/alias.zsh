@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+#
+# Git
+#
+
 gs() {
     git status $@
 }
@@ -12,6 +16,10 @@ gca() {
     git commit --amend $@
 }
 
+#
+# WP-CLI
+#
+
 wp-save() {
     wp db export $(dirname $(wp config path))/snapshots/$1.sql
 }
@@ -23,6 +31,10 @@ wp-load() {
 wp-snapshots() {
     ls $(dirname $(wp config path))/snapshots
 }
+
+#
+# Composer
+#
 
 # Execute binaries from Composer's vendor directory.
 function vendor() {
