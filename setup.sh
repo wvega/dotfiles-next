@@ -20,3 +20,4 @@ fi
 
 ./vim/setup.sh
 ./composer/setup.sh
+./zsh/setup.sh
