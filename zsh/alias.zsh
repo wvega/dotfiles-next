@@ -1,5 +1,17 @@
 #!/usr/bin/env zsh
 
+gs() {
+    git status $@
+}
+
+gc() {
+    git commit $@
+}
+
+gca() {
+    git commit --amend $@
+}
+
 wp-save() {
     wp db export $(dirname $(wp config path))/snapshots/$1.sql
 }
