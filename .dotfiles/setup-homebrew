@@ -6,6 +6,10 @@ if [[ ! -e "/usr/local/bin/brew" ]]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+echo "Installing git with Homebrew"
+
+brew install git
+
 echo "Checking and installing Homebrew bundle"
 
 brew bundle check --quiet --file="$1"
