@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-source "${HOME}/myzsh/alias.zsh"
-source "${HOME}/myzsh/lang.zsh"
-source "${HOME}/myzsh/plugins.zsh"
+source "${HOME}/.myzsh/alias.zsh"
+source "${HOME}/.myzsh/lang.zsh"
+source "${HOME}/.myzsh/plugins.zsh"
 
 # load snippets that modify $PATH last
-source "${HOME}/myzsh/path.zsh"
+source "${HOME}/.myzsh/path.zsh"
