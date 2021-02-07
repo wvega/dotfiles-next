@@ -1,0 +1,113 @@
+set nocompatible
+
+filetype off
+
+source ~/.vim/plugins.vim
+
+let mapleader=","
+
+source ~/.vim/ale.vim
+source ~/.vim/airline.vim
+source ~/.vim/ctrlp.vim
+source ~/.vim/coc.vim
+source ~/.vim/editorconfig.vim
+source ~/.vim/grep.vim
+source ~/.vim/indentguides.vim
+" source ~/.vim/indentLine.vim
+source ~/.vim/markdown.vim
+source ~/.vim/netrw.vim
+source ~/.vim/vdebug.vim
+source ~/.vim/UltiSnips.vim
+" source ~/.vim/syntastic.vim
+
+source ~/.vim/map.vim
+source ~/.vim/colors.vim
+source ~/.vim/statusline.vim
+
+" Add GitHub quotation marks to current line and all line below.
+let @q='GI>'
+
+set spell
+
+set clipboard=unnamed                   " Allow yy, D, and P to work with the clipboard
+
+set maxmempattern=10000
+set updatetime=100
+set timeoutlen=500
+
+set number
+set relativenumber
+" set cursorline                " Disabled because https://github.com/vim/vim/issues/2584
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent                  " Don't use smartindent unless absolutely necessary:
+                                " https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
+set hlsearch
+set incsearch
+set ignorecase                  " ignore case when searching
+set smartcase                   " don't ignore case when pattern is not lowercase
+
+set showtabline=1               " Show tabline if there are two or more tabs only
+set laststatus=2                " Always show the status line
+set noshowmode
+
+" Always show 3 lines of context around the cursor.
+set scrolloff=3
+
+" Complete till longest comment string, or complete the first match and show
+" list of all matches
+set wildmenu
+set wildmode=longest:full,list:full
+
+" Disable swapfiles
+set noswapfile
+
+set showmatch                   " show matching brackets
+set belloff+=showmatch          " Disablee beep when there is not matching brackets (after typing => for example)
+set whichwrap+=<,>,[,]          " cursor keys move to prev/next lines too
+set shortmess=aAIc              " use all the abbreviations, hide intro msg, etc.
+                                " but don't pass messages to |ins-completion-menu|
+set report=0
+
+set nostartofline               " don't move the cursor to the start of lines
+set splitbelow
+set splitright
+
+" set colorcolumn=80,100,120      " Highlight column 81 to help with text alignment
+
+set formatoptions+=n                " recognize numbered lists
+
+function! SetListChars()
+    return &expandtab ? 'tab:»\ ,trail:·' : 'tab:·,trail:·'
+endfunction
+
+augroup wvega
+    au!
+
+    au BufEnter * :call SetListChars()
+
+    " " Toggle relative numbers on insert mode and when a window gains focus.
+    " au FocusLost,InsertEnter * :set norelativenumber
+    " au FocusGained,InsertLeave * :set relativenumber
+
+    " Refresh .vimrc when saving the file
+    au BufWritePost vimrc so %
+    au BufWritePost gvimrc so %
+
+    " " Disable trim trailing whitespace for .diff files
+    " au BufEnter *.diff let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+    " au BufLeave *.diff let g:EditorConfig_disable_rules = []
+
+    " Add spell checking and automatic wrapping at the recommended 68 columns to your commit messages.
+    au Filetype gitcommit setlocal spell textwidth=68
+
+    " Allow long changelog entries.
+    au FileType changelog setlocal spell textwidth=150
+augroup END
+
+call TurnLightsOn()
+
+" Needs to be called after colorscheme has been set
+source ~/.vim/yaml.vim

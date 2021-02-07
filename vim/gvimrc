@@ -1,0 +1,18 @@
+set lines=60 columns=205                " Set default window size
+
+" set guifont=Hack                      " Use Hack because it comes with Powerline Symbols support
+" set guifont=InputMono
+" set guifont=IBMPlexMono:h12
+set guifont=JetBrains\ Mono:h18         " Needs :set linespace=4 to look good, looks good with :set macligatures
+set guifont=JetBrains\ Mono:h12         " Needs :set linespace=4 to look good, looks good with :set macligatures
+set linespace=4
+set macligatures
+
+set guioptions-=L                       " Disable vertical scrollbars
+set guioptions-=l
+set guioptions-=R
+set guioptions-=r
+
+nnoremap <D-p> :CtrlPBuffer<CR>
+
+macmenu File.Print key=<Nop>

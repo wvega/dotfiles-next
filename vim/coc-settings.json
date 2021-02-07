@@ -1,0 +1,10 @@
+{
+    "coc.preferences.rootPatterns": [
+        ".ctrlp",
+        ".vim",
+        ".git",
+        ".hg",
+        ".projections.json"
+    ],
+    "intelephense.licenceKey": "00ORBSQAV4YF380"
+}
