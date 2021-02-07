@@ -22,3 +22,4 @@ fi
 ./composer/setup.sh
 ./zsh/setup.sh
 ./ssh/setup.sh
+./git/setup.sh
