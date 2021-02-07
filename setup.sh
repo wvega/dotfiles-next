@@ -6,3 +6,5 @@ export PATH=$PWD/.dotfiles:$PATH
 accept-xcode-license
 
 setup-homebrew homebrew/Brewfile
+
+source macos/defaults.sh
