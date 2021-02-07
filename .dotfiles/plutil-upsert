@@ -1,0 +1,10 @@
+#!/bin/bash
+# vim: set syntax=bash
+
+plutil -extract "$1" xml1 -o - -- "$4" >/dev/null 2>&1
+
+if [[ $? = 0 ]]; then
+	plutil -replace "$1" $2 "$3" "$4";
+else
+	plutil -insert "$1" $2 "$3" "$4";
+fi
