@@ -3,6 +3,12 @@
 
 # Create symbolic links to relative files or directories using their absolute paths.
 
-if [[ ! -L "$2" ]]; then
-	exec ln -s "$(realpath $1)" "$2"
+source=$(realpath $1)
+if [[ ! -e "${source}" ]]; then
+    echo "Can't symlink to ${source}. The file or directory doesn't exist."
+    exit 1
+fi
+
+if [[ ! -L "$2" || "${source}" != $(realpath $2) ]]; then
+	exec ln -sv "${source}" "$2"
 fi
