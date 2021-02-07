@@ -2,6 +2,7 @@ tap 'homebrew/cask-fonts'
 
 brew 'autojump'
 brew 'ctags'
+brew 'coreutils'
 brew 'diff-so-fancy'
 brew 'editorconfig'
 brew 'mas'
