@@ -18,11 +18,12 @@ if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
 fi
 
 # symlink auxiliary configuration files
-for file in "${directory}/*.vim"; do
-    symlink $file $HOME/.vim/$file
+for file in "${directory}"/*.vim; do
+    symlink "${file}" "${HOME}/.vim/$(basename $file)"
 done
 
 # symlink snippets directory
-symlink UltiSnips $HOME/.vim/UltiSnips
+symlink "${directory}/UltiSnips" $HOME/.vim/UltiSnips
 
-symlink vimrc $HOME/.vim/vimrc
+symlink "${directory}/vimrc" $HOME/.vim/vimrc
+symlink "${directory}/gvimrc" $HOME/.vim/gvimrc
