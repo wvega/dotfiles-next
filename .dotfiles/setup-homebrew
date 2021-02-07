@@ -6,6 +6,11 @@ if [[ ! -e "/usr/local/bin/brew" ]]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-brew bundle check --file="$1" >/dev/null 2>&1  || {
-    brew bundle --file="$1"
-}
+echo "Checking and installing Homebrew bundle"
+
+brew bundle check --quiet --file="$1"
+
+if [[ ! $? -eq 0 ]]; then
+	echo "Installing missing dependencies"
+	brew bundle --file="$1"
+fi
