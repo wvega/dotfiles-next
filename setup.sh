@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # vim: set syntax=bash
 
 export PATH=$PWD/.dotfiles:$PATH
