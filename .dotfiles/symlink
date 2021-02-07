@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# vim: set syntax=bash
+
+# Create symbolic links to relative files or directories using their absolute paths.
+exec ln -s "$(realpath $1)" "$2"
