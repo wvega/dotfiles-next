@@ -1,0 +1,17 @@
+#!/bin/bash
+# vim: set syntax=bash
+
+if [ ! -f /usr/bin/xcodebuild ]; then
+	echo "xcodebuild was not found. No need to accept Xcode and Apple SDKs agreement."
+	exit 0
+fi
+
+# the seciton below was extracted from https://stackoverflow.com/a/60906147
+
+XCODE_VERSION=`xcodebuild -version | grep '^Xcode\s' | sed -E 's/^Xcode[[:space:]]+([0-9\.]+)/\1/'`
+ACCEPTED_LICENSE_VERSION=`defaults read /Library/Preferences/com.apple.dt.Xcode 2> /dev/null | grep IDEXcodeVersionForAgreedToGMLicense | cut -d '"' -f 2`
+
+if [ "$XCODE_VERSION" != "$ACCEPTED_LICENSE_VERSION" ]; then
+        echo "Accepting Xcode and Apple SDKs agreement"
+        sudo xcodebuild -license accept
+fi
