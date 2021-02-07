@@ -2,7 +2,8 @@
 # vim: set syntax=bash
 
 if [[ ! -e "/usr/local/bin/brew" ]]; then
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+	echo "Installing Homebrew"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 brew bundle check --file="$1" >/dev/null 2>&1  || {
