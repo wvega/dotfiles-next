@@ -1,0 +1,7 @@
+{
+    "require": {
+        "laravel/valet": "^2.2",
+        "psy/psysh": "@stable",
+        "laravel/installer": "^3.2"
+    }
+}
