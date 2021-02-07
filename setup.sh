@@ -19,3 +19,4 @@ if ! { which node >/dev/null 2>&1; }; then
 fi
 
 ./vim/setup.sh
+./composer/setup.sh
