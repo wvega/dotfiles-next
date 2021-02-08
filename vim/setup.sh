@@ -24,6 +24,7 @@ done
 
 # symlink snippets directory
 symlink "${directory}/UltiSnips" $HOME/.vim/UltiSnips
+symlink "${directory}/coc-settings.json" "${HOME}/.vim/coc-settings.json"
 
 symlink "${directory}/vimrc" $HOME/.vim/vimrc
 symlink "${directory}/gvimrc" $HOME/.vim/gvimrc
