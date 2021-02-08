@@ -7,6 +7,7 @@ accept-xcode-license
 
 setup-homebrew homebrew/Brewfile
 
+./bin/setup.sh
 ./macos/defaults.sh
 ./iterm2/defaults.sh
 
