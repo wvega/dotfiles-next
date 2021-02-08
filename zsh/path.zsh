@@ -1,6 +1,9 @@
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# Composer
+export PATH="${HOME}/.composer/vendor/bin:${PATH}"
+
 # Go development
 export GOPATH="${HOME}/.go"
 export GOROOT="/usr/local/opt/go/libexec"
