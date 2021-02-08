@@ -1,8 +1,15 @@
 #!/usr/bin/env zsh
 
+# jump between words instead of WORDS
+autoload -U select-word-style
+select-word-style bash
+
 source "${HOME}/.myzsh/alias.zsh"
 source "${HOME}/.myzsh/lang.zsh"
 source "${HOME}/.myzsh/plugins.zsh"
 
-# load snippets that modify $PATH last
+# load environment variables with secrets
+source "${HOME}/.myzsh/secrets.zsh"
+
+# load snippets that modify $PATH last
 source "${HOME}/.myzsh/path.zsh"
