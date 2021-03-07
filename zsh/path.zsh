@@ -12,6 +12,9 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 # Add path to binaries from mysql@5.7 formula
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
+# add pipx binaries to the path
+export PATH="${HOME}/.local/bin:$PATH"
+
 # Custom binaries
 export PATH="$HOME/bin:$PATH"
 
