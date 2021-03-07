@@ -11,3 +11,7 @@ for file in "${directory}"/*.zsh; do
 done
 
 symlink "${directory}/zshrc" "${HOME}/.zshrc"
+
+# set appropriate permissions for directories that contain completion functions
+chmod -R 755 /usr/local/share/zsh
+chmod -R 755 /usr/local/share/zsh/site-functions
