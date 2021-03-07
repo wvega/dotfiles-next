@@ -1,4 +1,4 @@
-set lines=60 columns=205                " Set default window size
+set lines=60 columns=130                " Set default window size
 
 " set guifont=Hack                      " Use Hack because it comes with Powerline Symbols support
 " set guifont=InputMono
