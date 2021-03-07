@@ -16,3 +16,5 @@ if [[ ! -f "${HOME}/bin/wpv" ]]; then
     curl --output "${HOME}/bin/wpv" https://raw.githubusercontent.com/smilingrobots/wpv/master/wpv.sh
     chmod u+x "${HOME}/bin/wpv"
 fi
+
+symlink "$(which symlink)" "${HOME}/bin/symlink"
