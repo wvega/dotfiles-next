@@ -35,4 +35,6 @@
 	new = green bold
 	whitespace = red reverse
 [include]
+    path = ~/.git.d/alias.gitconfig
+[include]
     path = ~/.git.d/work.gitconfig
