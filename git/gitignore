@@ -1,0 +1,7 @@
+# vim: set syntax=gitignore
+
+.vim/
+.ignore
+
+# Lumiere's local environment configuration
+.env.lumiere

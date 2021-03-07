@@ -16,3 +16,4 @@ for file in "$(dirname $directory)"/private/git/git.d/*.gitconfig; do
 done
 
 symlink "${directory}/gitconfig" "${HOME}/.gitconfig"
+symlink "${directory}/gitignore" "${HOME}/.gitignore"
