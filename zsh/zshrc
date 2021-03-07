@@ -13,3 +13,6 @@ source "${HOME}/.myzsh/secrets.zsh"
 
 # load snippets that modify $PATH last
 source "${HOME}/.myzsh/path.zsh"
+
+# load rbenv
+eval "$(rbenv init -)"
