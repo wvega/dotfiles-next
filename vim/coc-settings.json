@@ -6,5 +6,6 @@
         ".hg",
         ".projections.json"
     ],
+    "diagnostic.displayByAle": true,
     "intelephense.licenceKey": ""
 }
