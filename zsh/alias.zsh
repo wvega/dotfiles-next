@@ -29,7 +29,7 @@ wp-load() {
 }
 
 wp-snapshots() {
-    ls $(dirname $(wp config path))/snapshots
+    ls -G $(dirname $(wp config path))/snapshots
 }
 
 #
