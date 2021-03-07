@@ -9,7 +9,7 @@ let g:ale_php_cs_fixer_executable = 'php-cs-fixer-safe'
 let g:ale_php_cs_fixer_use_global = 1
 
 let g:ale_linters = {
-\    'php': ['php'],
+\    'php': ['php', 'phpcs'],
 \}
 
 let g:ale_fixers = {
