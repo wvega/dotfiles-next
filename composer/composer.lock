@@ -407,16 +407,16 @@
         },
         {
             "name": "laravel/valet",
-            "version": "v2.13.16",
+            "version": "v2.13.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/valet.git",
-                "reference": "af4d25f924792c5f0b960ec39e721476846c10a4"
+                "reference": "cc01db7eb960d63f55764897f06644236c356251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/valet/zipball/af4d25f924792c5f0b960ec39e721476846c10a4",
-                "reference": "af4d25f924792c5f0b960ec39e721476846c10a4",
+                "url": "https://api.github.com/repos/laravel/valet/zipball/cc01db7eb960d63f55764897f06644236c356251",
+                "reference": "cc01db7eb960d63f55764897f06644236c356251",
                 "shasum": ""
             },
             "require": {
@@ -470,7 +470,7 @@
                 "wwdhhd",
                 "zonda"
             ],
-            "time": "2020-12-08T19:10:41+00:00"
+            "time": "2021-01-23T02:47:14+00:00"
         },
         {
             "name": "mnapoli/silly",
@@ -862,16 +862,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.10.5",
+            "version": "v0.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "7c710551d4a2653afa259c544508dc18a9098956"
+                "reference": "6f990c19f91729de8b31e639d6e204ea59f19cf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/7c710551d4a2653afa259c544508dc18a9098956",
-                "reference": "7c710551d4a2653afa259c544508dc18a9098956",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/6f990c19f91729de8b31e639d6e204ea59f19cf3",
+                "reference": "6f990c19f91729de8b31e639d6e204ea59f19cf3",
                 "shasum": ""
             },
             "require": {
@@ -900,7 +900,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10.x-dev"
+                    "dev-main": "0.10.x-dev"
                 }
             },
             "autoload": {
@@ -930,7 +930,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2020-12-04T02:51:30+00:00"
+            "time": "2021-01-18T15:53:43+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
