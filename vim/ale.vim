@@ -1,3 +1,6 @@
+" disable ALE language server features that coc.nvim already provides
+let g:ale_disable_lsp = 1
+
 let g:ale_history_log_output = 0
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
