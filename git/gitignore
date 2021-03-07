@@ -1,5 +1,7 @@
 # vim: set syntax=gitignore
 
+.DS_Store
+
 .vim/
 .ignore
 
