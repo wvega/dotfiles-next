@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # vim: set syntax=bash
 
+directory=$(dirname $(realpath $0))
+
 mkdir -p "${HOME}/bin"
 
 # install WP-CLI
@@ -18,3 +20,5 @@ if [[ ! -f "${HOME}/bin/wpv" ]]; then
 fi
 
 symlink "$(which symlink)" "${HOME}/bin/symlink"
+
+symlink "${directory}/bin/php-cs-fixer-safe" "${HOME}/bin/php-cs-fixer-safe"

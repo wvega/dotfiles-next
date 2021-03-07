@@ -1,0 +1,19 @@
+#!/bin/bash
+# vim: syntax=bash
+
+LOG=/tmp/php-cs-fixer-safe.log
+
+echo $PWD >> $LOG
+echo $@ >> $LOG
+
+# run php-cs-fixer pre-commit hook if the project is using pre-commit
+if [ -e "$PWD/.pre-commit-config.yaml" ]; then
+    exec pre-commit run --files $2 php-cs-fixer
+fi
+
+# run PHP-CS-Fixer only on projects that have a .php_cs file
+if [ -e "$PWD/.php_cs" ]; then
+    exec php-cs-fixer $@
+fi
+
+exit 0
