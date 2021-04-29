@@ -1,6 +1,6 @@
 " Taken from https://github.com/stevenbarragan/dotfiles/commit/956c0ed4df7741e51dc9e45835373af392992aea#diff-5b9090f966f7d307f3ea913cd151ad36
 if executable('rg')
-    let g:ctrlp_user_command = 'rg --files --smart-case --hidden %s'
+    let g:ctrlp_user_command = 'rg --files --smart-case --hidden --follow %s'
     let g:ctrlp_use_caching = 0
 endif
 
