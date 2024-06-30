@@ -22,6 +22,24 @@ gca() {
     git commit --amend $@
 }
 
+gcm() {
+    git c -m $@
+}
+
+gp() {
+    git pure
+}
+
+gs() {
+    git status $@
+}
+
+lf() {
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+    git branch -d "${branch}"
+}
+
 #
 # WP-CLI
 #
