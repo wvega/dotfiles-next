@@ -159,4 +159,3 @@ function analyse() {
 function unslash() {
     php -r "echo stripslashes(file_get_contents('php://stdin'));"
 }
-
