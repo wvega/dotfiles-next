@@ -56,6 +56,53 @@ e() {
 }
 
 #
+# PHP
+#
+phpv() {
+    $(brew --cellar php@$1)/$(brew list --versions php@$1 | tr ' ' '\n' | sort -h | tail -1)/bin/php "${@:2}"
+}
+
+php7.3() {
+    phpv 7.3 "$@"
+}
+
+composer7.3() {
+    php7.3 /usr/local/bin/composer "$@"
+}
+
+php7.4() {
+    phpv 7.4 "$@"
+}
+
+composer7.4() {
+    php7.4 /usr/local/bin/composer "$@"
+}
+
+php8.0() {
+    phpv 8.0 "$@"
+}
+
+composer8.0() {
+    php8.0 /usr/local/bin/composer "$@"
+}
+
+php8.1() {
+    phpv 8.1 "$@"
+}
+
+composer8.1() {
+    php8.1 /usr/local/bin/composer "$@"
+}
+
+php8.2() {
+    phpv 8.2 "$@"
+}
+
+composer8.2() {
+    php8.2 /usr/local/bin/composer "$@"
+}
+
+#
 # WP-CLI
 #
 
