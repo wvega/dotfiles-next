@@ -16,8 +16,8 @@ nnoremap <leader>g :silent grep ""<Left>
 " nnoremap <leader>f :silent grep "function <C-R><C-W>"
 " nnoremap <leader>c :silent grep "class <C-R><C-W>"
 
-nnoremap <leader>tt :!vendor/bin/phpunit --colors=never --stop-on-failure<CR>
-nnoremap <leader>tf :!vendor/bin/phpunit --colors=never --stop-on-failure "%"<CR>
+nnoremap <leader>ts :term vendor/bin/phpunit --colors=never --stop-on-failure<CR>
+nnoremap <leader>tf :term vendor/bin/phpunit --colors=never --stop-on-failure "%"<CR>
 
 " Switch between dark and light background
 " nnoremap <leader>light :set bg=light<CR>
