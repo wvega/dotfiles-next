@@ -1,3 +1,6 @@
+# OpenSSL
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
@@ -18,5 +21,8 @@ export PATH="${HOME}/.local/bin:$PATH"
 # Custom binaries
 export PATH="$HOME/bin:$PATH"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Add RVM to PATH for scripting
 export PATH="$HOME/.rvm/bin:$PATH"
+
+# Add pyenv shims
+eval "$(pyenv init --path)"
