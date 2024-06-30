@@ -24,3 +24,5 @@ fi
 symlink "$(which symlink)" "${HOME}/bin/symlink"
 
 symlink "${directory}/bin/php-cs-fixer-safe" "${HOME}/bin/php-cs-fixer-safe"
+
+symlink "${directory}/private/zsh" "${HOME}/.myzsh/private"
