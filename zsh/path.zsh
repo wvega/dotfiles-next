@@ -24,5 +24,7 @@ export PATH="$HOME/bin:$PATH"
 # Add RVM to PATH for scripting
 export PATH="$HOME/.rvm/bin:$PATH"
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # Add pyenv shims
 eval "$(pyenv init --path)"
