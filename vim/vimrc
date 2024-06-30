@@ -7,7 +7,7 @@ source ~/.vim/plugins.vim
 let mapleader=","
 
 source ~/.vim/ale.vim
-source ~/.vim/airline.vim
+" source ~/.vim/airline.vim
 source ~/.vim/ctrlp.vim
 source ~/.vim/coc.vim
 source ~/.vim/editorconfig.vim
@@ -16,6 +16,7 @@ source ~/.vim/indentguides.vim
 " source ~/.vim/indentLine.vim
 source ~/.vim/markdown.vim
 source ~/.vim/netrw.vim
+source ~/.vim/php.vim
 source ~/.vim/vdebug.vim
 source ~/.vim/UltiSnips.vim
 " source ~/.vim/syntastic.vim
@@ -65,7 +66,7 @@ set wildmode=longest:full,list:full
 set noswapfile
 
 set showmatch                   " show matching brackets
-set belloff+=showmatch          " Disablee beep when there is not matching brackets (after typing => for example)
+set belloff+=showmatch          " Disable beep when there is not matching brackets (after typing => for example)
 set whichwrap+=<,>,[,]          " cursor keys move to prev/next lines too
 set shortmess=aAIc              " use all the abbreviations, hide intro msg, etc.
                                 " but don't pass messages to |ins-completion-menu|
