@@ -6,6 +6,10 @@ LOG=/tmp/php-cs-fixer-safe.log
 echo "${PWD}" >> $LOG
 echo "${@}" >> $LOG
 
+if [ -e "${PWD}/.skip-php-cs-fixer" ]; then
+    exit 0
+fi
+
 # run php-cs-fixer pre-commit hook if the project is using pre-commit
 if [ -e "${PWD}/.pre-commit-config.yaml" ] && grep "php-cs-fixer" "${PWD}/.pre-commit-config.yaml" > /dev/null 2>&1; then
     exec pre-commit run php-cs-fixer --files "${2}"
