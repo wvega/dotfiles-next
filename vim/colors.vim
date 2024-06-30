@@ -3,6 +3,8 @@ function! EnableSyntax()
 
     call matchadd('Error', ' ')             " Highlight "space" characters entered with Alt+Space on macOS
 
+    highlight IncSearch term=reverse ctermfg=10 ctermbg=9 gui=bold guifg=#f0f0f1 guibg=#d75f00
+    highlight Search term=reverse ctermfg=10 ctermbg=3 gui=bold guifg=Black guibg=#ffb650
     highlight Conceal guifg=#dddddd
     highlight SpecialKey guifg=#dddddd
 
@@ -36,6 +38,9 @@ function! EnableSyntax()
     highlight DbgDisabledSign guibg=#d6b586 guifg=#000036
     " highlight DbgCurrentStackPositionSign
     " highlight DbgCurrentStackPositionLine
+
+    " define colors for coc-list
+    " highlight CocListHighlight gui=bold guifg=Black guibg=LightGray
 endfunction
 
 if has('gui_running')
@@ -65,14 +70,18 @@ if has('gui_running')
     endfunction
 else
     function! TurnLightsOn()
-        colorscheme PaperColor
+        set termguicolors
+        colorscheme base16-one-light
+        " colorscheme PaperColor
         set background=light
 
         call EnableSyntax()
     endfunction
 
     function! TurnLightsOff()
-        colorscheme PaperColor
+        set termguicolors
+        colorscheme base16-onedark
+        " colorscheme PaperColor
         set background=dark
 
         call EnableSyntax()
