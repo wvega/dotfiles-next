@@ -30,6 +30,7 @@ setopt HIST_IGNORE_DUPS   # do not add an entry if it's a duplicate of the previ
 setopt EXTENDED_HISTORY   # add timestamp for each entry
 
 source "${HOME}/.myzsh/alias.zsh"
+source "${HOME}/.myzsh/private/alias.zsh"
 
 source "${HOME}/.myzsh/lang.zsh"
 
@@ -40,6 +41,7 @@ source "${HOME}/.myzsh/secrets.zsh"
 
 # load snippets that modify $PATH last
 source "${HOME}/.myzsh/path.zsh"
+source "${HOME}/.myzsh/private/path.zsh"
 
 # load rbenv
 eval "$(rbenv init -)"
@@ -55,3 +57,6 @@ export NVM_DIR="$HOME/.nvm"
 #### Direnv hooks ####
 eval "$(direnv hook zsh)"
 #### END Direnv hooks ###
+
+# load private .zshrc settings
+source "${HOME}/.myzsh/private/zshrc"
