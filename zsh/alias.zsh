@@ -135,3 +135,7 @@ function pur() {
     vendor phpunit -dmemory_limit=-1 --order-by="random" --printer 'PHPUnit\TextUI\DefaultResultPrinter' "$@"
 }
 
+sail() {
+    vendor/bin/sail "$@"
+}
+
