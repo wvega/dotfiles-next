@@ -4,8 +4,17 @@
 autoload -U select-word-style
 select-word-style bash
 
+export HISTSIZE=10000 # set history size
+export SAVEHIST=10000 # save history after logout
+
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS   # do not add an entry if it's a duplicate of the previous entry
+setopt EXTENDED_HISTORY   # add timestamp for each entry
+
 source "${HOME}/.myzsh/alias.zsh"
+
 source "${HOME}/.myzsh/lang.zsh"
+
 source "${HOME}/.myzsh/plugins.zsh"
 
 # load environment variables with secrets
