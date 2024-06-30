@@ -4,8 +4,14 @@
 # Git
 #
 
-gs() {
-    git status $@
+gb() {
+    # get the last argument on the list
+    eval last=\${$#}
+
+    branch=$(echo "${last}" | awk '{print tolower($0)}')
+
+    git checkout -b ${branch}
+    git commit --allow-empty -m "${branch}"
 }
 
 gc() {
