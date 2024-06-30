@@ -11,16 +11,17 @@ call vundle#begin()
     "
     " Issue https://github.com/chriskempson/base16-vim/issues/197
     " Pull Request https://github.com/chriskempson/base16-vim/pull/198
-    Plugin       'danielwe/base16-vim'
+    Plugin   'chriskempson/base16-vim'
     Plugin       'neoclide/coc.nvim'                " :call coc#util#install() after installing
     Plugin       'ctrlpvim/ctrlp.vim'
     Plugin      'tacahiroy/ctrlp-funky'
     Plugin           'dyng/ctrlsf.vim'
     Plugin   'editorconfig/editorconfig-vim'
     " Plugin       'Yggdroot/indentLine'
-    Plugin                'matchit.zip'
-    Plugin      'NLKNguyen/papercolor-theme'
+    " Plugin                'matchit.zip'
+    " Plugin      'NLKNguyen/papercolor-theme'
     Plugin   'StanAngeloff/php.vim'
+    " Plugin       'phpactor/phpactor' " Run composer install --no-dev -o on ~/.vim/bundle/phpactor
     " Plugin       'ervandew/supertab'
     " Plugin  'vim-syntastic/syntastic'
 
@@ -37,11 +38,12 @@ call vundle#begin()
     Plugin            'mxw/vim-jsx'
     Plugin          'mtdl9/vim-log-highlighting'
     " Plugin     'plasticboy/vim-markdown'
+    Plugin        'amadeus/vim-mjml'
     Plugin       'pbrisbin/vim-mkdir'
     Plugin          'tpope/vim-rhubarb'
     Plugin        'jremmen/vim-ripgrep'
     Plugin       'justinmk/vim-sneak'
-    Plugin          'mrk21/yaml-vim'
+    " Plugin          'mrk21/yaml-vim'
 
     " Causes all trailing  whitespace characters to be highlighted.
     " Slows down Vim significantly probably related to https://github.com/vim/vim/issues/2584
