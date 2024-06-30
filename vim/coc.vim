@@ -1,7 +1,9 @@
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-phpls',
+    \ 'coc-snippets',
     \ 'coc-ultisnips',
+    \ 'coc-yaml',
 \]
 
 " the following was initially copied from https://github.com/neoclide/coc.nvim#example-vim-configuration
@@ -16,16 +18,32 @@ set nowritebackup
 set signcolumn=yes " always show the signcolumn to prevent the text from
                    " shifting each time diagnostics appear/become resolved
 
-" use TAB to trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " returns true if the cursor is on the first column or the previous character
 " is a whitespace character or \
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" " use TAB to trigger completion with characters ahead and navigate.
+" inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+
+" make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCode
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+let g:coc_snippet_next = '<tab>'
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 
 " use <c-space> to trigger completion
 inoremap <silent><expr> <C-Space> coc#refresh()

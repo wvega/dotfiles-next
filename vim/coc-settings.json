@@ -6,6 +6,25 @@
         ".hg",
         ".projections.json"
     ],
+    "coc.preferences.jumpCommand": "edit",
+
+    "list.matchHighlightGroup": "Search",
+    "list.previewHighlightGroup": "Search",
+
+    "list.source.outline.defaultAction": "drop",
+
     "diagnostic.displayByAle": true,
-    "intelephense.licenceKey": ""
+
+    "phpls.enable": true,
+    "phpls.trace.server": "messages",
+
+    "intelephense.licenceKey": "",
+    "intelephense.telemetry.enabled": false,
+    "intelephense.completion.triggerParameterHints": true,
+    "intelephense.trace.server": "messages",
+
+    "phpactor.enable": false,
+    "phpactor.config": {
+        "indexer.enabled_watchers": ["watchman"]
+    }
 }
