@@ -1,4 +1,3 @@
-tap 'homebrew/cask-fonts'
 tap 'shivammathur/php'
 
 brew 'autojump'
