@@ -4,7 +4,10 @@
     c  = commit
     ca = commit --amend
     co = checkout
+    goback = reset HEAD~1
     lg = log --color --graph --date=human --pretty=format:'%C(bold magenta)%h%Creset -%C(bold green)%d%Creset %s %C(bold cyan)(%cd)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit
     pure = pull --rebase
     remove-merged = "!git branch --merged | grep -v \"\\*\\|main\\|master\\|develop\" | while read branch; do git branch -d \"$branch\"; done"
     remove-squashed = "!git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base HEAD $branch) && [[ $(git cherry HEAD $(git commit-tree $(git rev-parse $branch\\^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done"
+    remove-gone = "!git branch -vv | grep \"gone]\" | awk '{system(\"git branch -D \" $1)}'"
+    show-gone = "!git branch -vv | grep \"gone]\" | awk '{print $1}'"
