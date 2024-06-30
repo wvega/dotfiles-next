@@ -25,3 +25,15 @@ source "${HOME}/.myzsh/path.zsh"
 
 # load rbenv
 eval "$(rbenv init -)"
+
+# load pyenv
+eval "$(pyenv init -)"
+
+# load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#### Direnv hooks ####
+eval "$(direnv hook zsh)"
+#### END Direnv hooks ###
