@@ -126,3 +126,12 @@ wp-snapshots() {
 function vendor() {
     vendor/bin/$1 "${@:2}"
 }
+
+function pu() {
+    vendor phpunit -dmemory_limit=-1 --printer 'PHPUnit\TextUI\DefaultResultPrinter' "$@"
+}
+
+function pur() {
+    vendor phpunit -dmemory_limit=-1 --order-by="random" --printer 'PHPUnit\TextUI\DefaultResultPrinter' "$@"
+}
+
