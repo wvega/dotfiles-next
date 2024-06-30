@@ -1,6 +1,7 @@
 Host *
     AddKeysToAgent yes
     UseKeychain yes
-    ServerAliveInterval 240
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
 
 Include config.d/*.config
