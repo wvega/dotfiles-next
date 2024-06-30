@@ -42,12 +42,7 @@ cask 'iterm2'
 cask 'paw'
 cask 'raycast'
 
-mas "1Password 7", id: 1333542190
 mas "Bear", id: 1091189122
-mas "Elpy", id: 1440013765
-mas "Harvest", id: 506189836
 mas "Magnet", id: 441258766
-mas "PDFOptim", id: 621276561
 mas "Slack", id: 803453959
 mas "The Unarchiver", id: 425424353
-mas "Xcode", id: 497799835
