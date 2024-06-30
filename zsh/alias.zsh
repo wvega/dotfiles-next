@@ -139,3 +139,16 @@ sail() {
     vendor/bin/sail "$@"
 }
 
+function stan() {
+    vendor phpstan "$@"
+}
+function satan() {
+    vendor phpstan "$@"
+}
+function analyze() {
+    stan analyze --memory-limit 1G "$@"
+}
+function analyse() {
+    analyze "$@"
+}
+
