@@ -11,7 +11,7 @@ if [[ -d /opt/homebrew/sbin ]]; then
 fi
 
 # Composer
-export PATH="${HOME}/.composer/vendor/bin:${PATH}"
+export PATH="/opt/composer/bin:${HOME}/.composer/vendor/bin:${PATH}"
 
 # Go development
 export GOPATH="${HOME}/.go"
