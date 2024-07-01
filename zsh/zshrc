@@ -29,19 +29,32 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS   # do not add an entry if it's a duplicate of the previous entry
 setopt EXTENDED_HISTORY   # add timestamp for each entry
 
-source "${HOME}/.myzsh/alias.zsh"
-source "${HOME}/.myzsh/private/alias.zsh"
-
 source "${HOME}/.myzsh/lang.zsh"
+
+source "${HOME}/.myzsh/alias.zsh"
+
+if [[ -f "${HOME}/.myzsh/private/alias.zsh" ]]; then
+    source "${HOME}/.myzsh/private/alias.zsh"
+fi
+
+# load snippets that modify $PATH last
+source "${HOME}/.myzsh/path.zsh"
+
+if [[ -f "${HOME}/.myzsh/private/path.zsh" ]]; then
+    source "${HOME}/.myzsh/private/path.zsh"
+fi
 
 source "${HOME}/.myzsh/plugins.zsh"
 
 # load environment variables with secrets
-source "${HOME}/.myzsh/secrets.zsh"
+if [[ -f "${HOME}/.myzsh/private/secrets.zsh" ]]; then
+    source "${HOME}/.myzsh/private/secrets.zsh"
+fi
 
-# load snippets that modify $PATH last
-source "${HOME}/.myzsh/path.zsh"
-source "${HOME}/.myzsh/private/path.zsh"
+# load private .zshrc settings
+if [[ -f "${HOME}/.myzsh/private/zshrc" ]]; then
+    source "${HOME}/.myzsh/private/zshrc"
+fi
 
 # load rbenv
 eval "$(rbenv init -)"
@@ -57,6 +70,3 @@ export NVM_DIR="$HOME/.nvm"
 #### Direnv hooks ####
 eval "$(direnv hook zsh)"
 #### END Direnv hooks ###
-
-# load private .zshrc settings
-source "${HOME}/.myzsh/private/zshrc"
