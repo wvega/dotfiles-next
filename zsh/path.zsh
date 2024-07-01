@@ -2,7 +2,13 @@
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # Homebrew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+if [[ -d /usr/local/bin ]]; then
+    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+fi
+
+if [[ -d /opt/homebrew/sbin ]]; then
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+fi
 
 # Composer
 export PATH="${HOME}/.composer/vendor/bin:${PATH}"
