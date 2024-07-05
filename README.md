@@ -1,3 +1,60 @@
+# Setup custom tools
+
+## Create the `bin` directory
+
+```zsh
+mkdir -p "${HOME}/bin"
+```
+
+## Install `wpv`
+
+```bash
+curl --output "${HOME}/bin/wpv" https://raw.githubusercontent.com/smilingrobots/wpv/master/wpv.sh
+chmod u+x "${HOME}/bin/wpv"
+```
+
+## Add `symlink` command
+
+```
+ln -s "${PWD}/.dotfiles/symlink" "${HOME}/bin/symlink"
+```
+
+## Add `plutil-upsert` command
+
+```
+symlink .dotfiles/plutil-upsert "${HOME}/bin"
+```
+
+## Add `php-cs-fixer-safe` command
+
+```
+symlink bin/php-cs-fixer-safe "${HOME}/bin"
+```
+
+# Setup SSH
+
+## Symlink SSH `config` file
+
+```bash
+symlink "ssh/config" "${HOME}/.ssh/config"
+```
+
+## Symlink public configuration files
+
+```bash
+for file in ssh/config.d/*.config; do
+    symlink "${file}" "${HOME}/.ssh/config.d/$(basename $file)"
+done
+```
+
+## Symlink private configuration files
+
+```bash
+for file in private/ssh/config.d/*.config; do
+    symlink "${file}" "${HOME}/.ssh/config.d/$(basename $file)"
+done
+```
+
 # Setup macOS
 
 ## Add the user's home directory to the Favorites sidebar
@@ -100,39 +157,6 @@ brew install git
 
 ```zsh
 brew bundle --verbose --file=homebrew/Brewfile
-```
-
-# Other Tools
-
-## Create the `bin` directory
-
-```zsh
-mkdir -p "${HOME}/bin"
-```
-
-## Install `wpv`
-
-```bash
-curl --output "${HOME}/bin/wpv" https://raw.githubusercontent.com/smilingrobots/wpv/master/wpv.sh
-chmod u+x "${HOME}/bin/wpv"
-```
-
-## Add `symlink` command
-
-```
-ln -s "${PWD}/.dotfiles/symlink" "${HOME}/bin/symlink"
-```
-
-## Add `plutil-upsert` command
-
-```
-symlink .dotfiles/plutil-upsert "${HOME}/bin"
-```
-
-## Add `php-cs-fixer-safe` command
-
-```
-symlink bin/php-cs-fixer-safe "${HOME}/bin"
 ```
 
 # Setup Git
