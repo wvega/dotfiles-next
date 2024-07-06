@@ -245,10 +245,22 @@ plutil-upsert "New Bookmarks.0.Custom Directory" -string "Advanced" ~/Library/Pr
 plutil-upsert "New Bookmarks.0.AWDS Pane Option" -string "Recycle" ~/Library/Preferences/com.googlecode.iterm2.plist
 ```
 
-### Set JetBrains Mono Regular `13` as the font
+### Set the default font
+
+#### JetBrains Mono
+
+JetBrains Mono Regular `13` as the font
 
 ```bash
 plutil-upsert "New Bookmarks.0.Normal Font" -string "JetBrainsMono-Regular 13" ~/Library/Preferences/com.googlecode.iterm2.plist
+```
+
+#### SF Mono
+
+Download the SF Mono font from https://developer.apple.com/fonts/ and then execute the following command:
+
+```bash
+plutil-upsert "New Bookmarks.0.Normal Font" -string "SFMono-Regular 13" ~/Library/Preferences/com.googlecode.iterm2.plist
 ```
 
 ### Configure the Window to use `180` columns and `44` rows
