@@ -33,6 +33,12 @@ symlink bin/php-cs-fixer-safe "${HOME}/bin"
 
 # Setup SSH
 
+## Create directory to store configurations
+
+```bash
+mkdir -p "${HOME}/.ssh/config.d"
+```
+
 ## Symlink SSH `config` file
 
 ```bash
