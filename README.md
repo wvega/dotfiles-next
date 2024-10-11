@@ -31,6 +31,47 @@ symlink .dotfiles/plutil-upsert "${HOME}/bin"
 symlink bin/php-cs-fixer-safe "${HOME}/bin"
 ```
 
+# Setup Vim/Neovim
+
+## Create the directories to store configurations and plugins
+
+```bash
+mkdir -p "{$HOME}/.vim/bundle"
+```
+
+## Install Vundle
+
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+```
+
+## Symlink auxiliary configuration files
+
+```bash
+for file in vim/*.vim; do
+    symlink "${file}" "${HOME}/.vim/$(basename $file)"
+done
+```
+
+## Symlink UltiSnips directory
+
+```bash
+symlink vim/UltiSnips "${HOME}/.vim/UltiSnips"
+```
+
+## Symlink COC settings
+
+```bash
+symlink vim/coc-settings.json "${HOME}/.vim/coc-settings.json"
+```
+
+## Symlink vimrc files
+
+```bash
+symlink vim/vimrc "${HOME}/.vim/vimrc"
+symlink vim/gvimrc "${HOME}/.vim/gvimrc"
+```
+
 # Setup SSH
 
 ## Create directory to store configurations
