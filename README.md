@@ -68,8 +68,8 @@ symlink vim/coc-settings.json "${HOME}/.vim/coc-settings.json"
 ## Symlink vimrc files
 
 ```bash
-symlink vim/vimrc "${HOME}/.vim/vimrc"
-symlink vim/gvimrc "${HOME}/.vim/gvimrc"
+symlink vim/vimrc "${HOME}/.vimrc"
+symlink vim/gvimrc "${HOME}/.gvimrc"
 ```
 
 # Setup SSH
