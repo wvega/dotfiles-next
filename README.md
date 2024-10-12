@@ -72,6 +72,10 @@ symlink vim/vimrc "${HOME}/.vimrc"
 symlink vim/gvimrc "${HOME}/.gvimrc"
 ```
 
+## Install Plugins
+
+Launch `vim` and run `:PluginInstall`.
+
 # Setup SSH
 
 ## Create directory to store configurations
