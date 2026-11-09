@@ -7,3 +7,9 @@
 
 # Lumiere's local environment configuration
 .env.lumiere
+
+# Agent session notes; kept on this machine, never committed to project repos
+memory.md
+
+# Per-project local Claude Code settings
+**/.claude/settings.local.json
