@@ -4,11 +4,15 @@
 # Git
 #
 
+gap() {
+    git add -p $@
+}
+
 gb() {
     # get the last argument on the list
     eval last=\${$#}
 
-    branch=$(echo "${last}" | awk '{print tolower($0)}')
+    branch=$(echo "${last:0:70}")
 
     git checkout -b ${branch}
     git commit --allow-empty -m "${branch}"
@@ -40,11 +44,49 @@ lf() {
     git branch -d "${branch}"
 }
 
+gwab() {
+    # get the last argument on the list
+    eval last=\${$#}
+
+    local branch=$(echo "${last:0:70}")
+
+    gwa "${branch}"
+
+    git commit --allow-empty -m "${branch}"
+}
+
+gwa() {
+    local branch="$1"
+    local base="$(basename "$PWD")"
+    local suffix="${branch//\//-}"
+    local worktree="../${base}--${suffix}"
+
+    git worktree add -b "${branch}" "${worktree}"
+
+    cd "${worktree}"
+}
+
+gwaco() {
+    local branch="$1"
+    local base="$(basename "$PWD")"
+    local suffix="${branch//\//-}"
+    local worktree="../${base}--${suffix}"
+
+    git worktree add "${worktree}" "${branch}"
+
+    cd "${worktree}"
+}
+
 #
 # LS
 #
+
 l() {
     eza $@
+}
+
+ll() {
+    eza --long --header --group --git --modified --color-scale
 }
 
 #
