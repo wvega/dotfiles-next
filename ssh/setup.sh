@@ -1,18 +1,35 @@
 #!/usr/bin/env bash
 # vim: set syntax=bash
 
-directory=$(dirname $(realpath $0))
+directory=$(dirname "$(realpath "$0")")
+root=$(dirname "${directory}")
+
+case "$(uname -s)" in
+    Darwin) os=macos ;;
+    Linux)  os=linux ;;
+    *)      os=none ;;
+esac
 
 mkdir -p "${HOME}/.ssh/config.d"
 
-# # symlink public configuration files
-# for file in "${directory}"/config.d/*.config; do
-#     symlink "${file}" "${HOME}/.ssh/config.d/$(basename $file)"
-# done
+symlink "${directory}/config" "${HOME}/.ssh/config"
 
-# symlink private configuration files
-for file in "$(dirname $directory)"/private/ssh/config.d/*.config; do
-    symlink "${file}" "${HOME}/.ssh/config.d/$(basename $file)"
+shopt -s nullglob
+
+# Shared configuration files first, then the files for this OS.
+for file in "${directory}"/config.d/*.config "${directory}/${os}"/config.d/*.config; do
+    symlink "${file}" "${HOME}/.ssh/config.d/$(basename "$file")"
 done
 
-symlink "${directory}/config" "${HOME}/.ssh/config"
+# Private configuration files
+for file in "${root}"/private/ssh/config.d/*.config; do
+    symlink "${file}" "${HOME}/.ssh/config.d/$(basename "$file")"
+done
+
+# Remove links whose target no longer exists, for example after a rename.
+for link in "${HOME}/.ssh/config.d"/*; do
+    if [[ -L "${link}" && ! -e "${link}" ]]; then
+        echo "Removing stale link ${link}"
+        rm -f "${link}"
+    fi
+done

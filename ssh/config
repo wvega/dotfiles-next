@@ -1,9 +1,3 @@
-IgnoreUnknown UseKeychain
-
-Host *
-    AddKeysToAgent yes
-    UseKeychain yes
-    ServerAliveInterval 30
-    ServerAliveCountMax 10
+Include ~/.colima/ssh_config
 
 Include config.d/*.config
