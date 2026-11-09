@@ -347,7 +347,7 @@ plutil-upsert "QuitWhenAllWindowsClosed" -integer 1 ~/Library/Preferences/com.go
 
 ### Other settings
 
-- Use `Light Background` as the color preset
+- Use `GitHub Light High Constrast` as the color preset (downloaded from [cdalvaro/github-vscode-theme-iterm](https://github.com/cdalvaro/github-vscode-theme-iterm/tree/main))
 - Set the **Scrollback lines** setting to `3000`
 
 # Setup Composer
