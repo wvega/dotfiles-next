@@ -373,6 +373,14 @@ symlink "composer/composer.json" "${HOME}/.composer/composer.json"
 symlink "composer/composer.lock" "${HOME}/.composer/composer.lock"
 ```
 
+## Configure personal access token for GitHub
+
+Set the `GITHUB_PAT` variable to a valid GitHub Personal Access Token, and then execute the following command:
+
+```bash
+jq --arg GITHUB_PAT "${GITHUB_PAT}" -c -e -n '{"github-oauth": {"github.com": $GITHUB_PAT}}' > ~/.composer/auth.json
+```
+
 ## Install global Composer packages
 
 ```bash
