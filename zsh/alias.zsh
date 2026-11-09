@@ -1,6 +1,22 @@
 #!/usr/bin/env zsh
 
 #
+# Claude Code
+#
+
+function haiku() {
+    ANTHROPIC_MODEL="claude-haiku-5-5[1M]" bane "$@"
+}
+
+function sonnet() {
+    ANTHROPIC_MODEL="claude-sonnet-5-5[1M]" bane "$@"
+}
+
+function opus() {
+    ANTHROPIC_MODEL="claude-opus-5-5[1M]" bane "$@"
+}
+
+#
 # Git
 #
 
