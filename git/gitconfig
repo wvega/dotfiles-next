@@ -13,7 +13,9 @@
 [interactive]
     diffFilter = diff-so-fancy --patch
 [merge]
-	tool = opendiff
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait --merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"
 [diff]
 	compactionHeuristic = true
 [diff-so-fancy]
