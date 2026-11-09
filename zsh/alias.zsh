@@ -109,7 +109,7 @@ php7.3() {
 }
 
 composer7.3() {
-    php7.3 /usr/local/bin/composer "$@"
+    php7.3 $(which composer) "$@"
 }
 
 php7.4() {
@@ -117,7 +117,7 @@ php7.4() {
 }
 
 composer7.4() {
-    php7.4 /usr/local/bin/composer "$@"
+    php7.4 $(which composer) "$@"
 }
 
 php8.0() {
@@ -125,7 +125,7 @@ php8.0() {
 }
 
 composer8.0() {
-    php8.0 /usr/local/bin/composer "$@"
+    php8.0 $(which composer) "$@"
 }
 
 php8.1() {
@@ -133,7 +133,7 @@ php8.1() {
 }
 
 composer8.1() {
-    php8.1 /usr/local/bin/composer "$@"
+    php8.1 $(which composer) "$@"
 }
 
 php8.2() {
@@ -141,7 +141,7 @@ php8.2() {
 }
 
 composer8.2() {
-    php8.2 /usr/local/bin/composer "$@"
+    php8.2 $(which composer) "$@"
 }
 
 #
@@ -169,6 +169,10 @@ function vendor() {
     vendor/bin/$1 "${@:2}"
 }
 
+#
+# PHPUnit
+#
+
 function pu() {
     vendor phpunit -dmemory_limit=-1 --printer 'PHPUnit\TextUI\DefaultResultPrinter' "$@"
 }
@@ -177,9 +181,17 @@ function pur() {
     vendor phpunit -dmemory_limit=-1 --order-by="random" --printer 'PHPUnit\TextUI\DefaultResultPrinter' "$@"
 }
 
+#
+# Laravel Sail
+#
+
 sail() {
     vendor/bin/sail "$@"
 }
+
+#
+# PHPStan
+#
 
 function stan() {
     vendor phpstan "$@"
@@ -188,7 +200,7 @@ function satan() {
     vendor phpstan "$@"
 }
 function analyze() {
-    stan analyze --memory-limit 1G "$@"
+    stan analyze --memory-limit 2G "$@"
 }
 function analyse() {
     analyze "$@"
@@ -197,6 +209,14 @@ function analyse() {
 #
 # Misc
 #
+
+function pc() {
+    pre-commit run php-cs-fixer --from-ref origin/HEAD --to-ref HEAD
+}
+
+function pca() {
+    pre-commit run php-cs-fixer --all-files
+}
 
 function unslash() {
     php -r "echo stripslashes(file_get_contents('php://stdin'));"
