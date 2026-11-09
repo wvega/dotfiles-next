@@ -80,25 +80,15 @@ Launch `vim` and run `:PluginInstall`.
 
 See [ssh/README.md](ssh/README.md) for the file layout and the ordering rules.
 
-## Create directory to store configurations
-
-```bash
-mkdir -p "${HOME}/.ssh/config.d"
-```
-
-## Symlink SSH `config` file
-
-```bash
-symlink "ssh/config" "${HOME}/.ssh/config"
-```
-
-## Symlink configuration files
-
-Run the setup script. It links the shared files, then the files for this OS, then the private files.
+## Run the setup script
 
 ```bash
 ./ssh/setup.sh
 ```
+
+The script creates `~/.ssh/config.d`. It links the shared files, then the files for this OS, then the private files. It also adds the managed `Include` block to `~/.ssh/config` when the block is absent.
+
+`~/.ssh/config` stays machine-local. Do not symlink it into this repo, because other tools append their own lines to it.
 
 # Setup macOS
 

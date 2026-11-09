@@ -2,9 +2,21 @@
 
 ## Approach
 
-The `config` file holds the two `Include` lines only. All settings live in
-snippet files. `setup.sh` links the shared snippets and the snippets for the
-current OS into `~/.ssh/config.d`.
+All settings live in snippet files. `setup.sh` links the shared snippets and
+the snippets for the current OS into `~/.ssh/config.d`, then adds one managed
+block to `~/.ssh/config`.
+
+That block is the only part of `~/.ssh/config` this repo controls:
+
+```
+# BEGIN dotfiles
+Include config.d/*.config
+# END dotfiles
+```
+
+The rest of the file belongs to the machine. Other tools add their own lines
+and this repo never touches them. `~/.ssh/config` is not tracked, because
+Colima and other tools write to it.
 
 OpenSSH reads the files top to bottom. For each keyword it keeps the first
 value it finds. Later files can add keywords, but they cannot replace an
@@ -14,12 +26,13 @@ earlier value.
 
 ```
 ssh/
-  config                      # Include lines only
   config.d/                   # shared, linked on every host
     20-host-defaults.config
   macos/config.d/             # linked on macOS only
     10-keychain.config
   linux/config.d/             # linked on Linux only
+  README.md
+  setup.sh
 ```
 
 Prefixes set the read order. The glob sorts by name, not by number, so always
@@ -57,6 +70,10 @@ No output means no keyword appears twice.
 ./ssh/setup.sh
 ```
 
+The script creates `~/.ssh/config` when it does not exist. It appends the
+managed block when the block is absent. It never rewrites the rest of the
+file.
+
 The script links the shared snippets, then the snippets for `uname -s`, then
 the private snippets. It also removes links whose target no longer exists.
 
@@ -84,5 +101,12 @@ diff /tmp/ssh-before.txt /tmp/ssh-after.txt
    context of the `Include` line, so a bare keyword has no fixed scope.
 4. Link individual files and keep `~/.ssh/config.d` a real directory. The
    private snippets are written into that same directory.
-5. Use `~` in `Include` paths. An absolute path breaks on another host or
-   user.
+5. Never make `~/.ssh/config` a symlink into this repo. A tool that appends a
+   line would edit a tracked file. Machines that still have that link need the
+   repair done by hand:
+
+   ```bash
+   trash ~/.ssh/config
+   ```
+
+   Then create a real file and run `./ssh/setup.sh` to add the block.

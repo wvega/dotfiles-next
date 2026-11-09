@@ -17,7 +17,18 @@ esac
 
 mkdir -p "${HOME}/.ssh/config.d"
 
-symlink "${directory}/config" "${HOME}/.ssh/config"
+# The user's SSH config is machine-local. Add the Include block once.
+config="${HOME}/.ssh/config"
+
+touch "${config}"
+
+if ! grep -qxF '# BEGIN dotfiles' "${config}"; then
+    if [[ -s "${config}" ]]; then
+        printf '\n' >> "${config}"
+    fi
+
+    printf '# BEGIN dotfiles\nInclude config.d/*.config\n# END dotfiles\n' >> "${config}"
+fi
 
 shopt -s nullglob
 
