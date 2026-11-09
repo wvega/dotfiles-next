@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 # vim: set syntax=bash
 
+set -euo pipefail
+
 directory=$(dirname "$(realpath "$0")")
 root=$(dirname "${directory}")
+
+# Link with the helper from this checkout. Same approach as the root setup.sh.
+export PATH="${root}/.dotfiles:${PATH}"
 
 case "$(uname -s)" in
     Darwin) os=macos ;;

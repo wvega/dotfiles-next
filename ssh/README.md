@@ -60,6 +60,10 @@ No output means no keyword appears twice.
 The script links the shared snippets, then the snippets for `uname -s`, then
 the private snippets. It also removes links whose target no longer exists.
 
+It puts the repo's `.dotfiles` directory first on PATH, the same way the root
+`setup.sh` does. It always uses the helper from this checkout, and it works
+before `~/bin` is on PATH. It stops on the first error.
+
 ## Verify
 
 Print the resolved configuration and compare it before and after a change:
