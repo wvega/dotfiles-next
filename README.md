@@ -255,18 +255,10 @@ symlink "zsh/zshrc" "${HOME}/.zshrc"
 
 ## Set appropriate permissions for directories that contain completion functions
 
-### Apple Sillicon
+`zsh/setup.sh` handles this automatically: it detects the zsh completion directory for the current platform (Homebrew on Intel/Apple Silicon macOS, `/usr/share/zsh` on Linux) and fixes its permissions so zsh's `compinit` doesn't treat them as insecure.
 
 ```bash
-chmod -R 755 /opt/homebrew/share/zsh
-chmod -R 755 /opt/homebrew/share/zsh/site-functions
-```
-
-### Intel
-
-```bash
-chmod -R 755 /usr/local/share/zsh
-chmod -R 755 /usr/local/share/zsh/site-functions
+./zsh/setup.sh
 ```
 
 # Setup iTerm2
