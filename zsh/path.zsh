@@ -15,11 +15,11 @@ export PATH="/opt/composer/bin:${HOME}/.composer/vendor/bin:${PATH}"
 
 # Go development
 export GOPATH="${HOME}/.go"
-export GOROOT="/usr/local/opt/go/libexec"
+export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
-# Add path to binaries from mysql@5.7 formula
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# Add path to binaries from mysql-client@8.0 formula
+export PATH="/opt/homebrew/Cellar/mysql-client@8.0/8.0.41/bin:${PATH}"
 
 # add pipx binaries to the path
 export PATH="${HOME}/.local/bin:$PATH"
@@ -31,6 +31,8 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PATH="$(brew --prefix libpq)/bin:$PATH"
 
 # Add pyenv shims
 eval "$(pyenv init --path)"
